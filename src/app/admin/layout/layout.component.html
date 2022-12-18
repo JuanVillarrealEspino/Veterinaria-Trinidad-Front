@@ -1,0 +1,26 @@
+<mat-toolbar color="white">
+  <span>TRINIDAD</span>
+
+  <button mat-button routerLink="/admin/HistoriaClinica" class="ms-2">
+    HISTORIAS CLINICAS
+  </button>
+  <button mat-button routerLink="/admin/Citas" class="ms-2">
+    CITAS
+  </button>
+
+  <span class="spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="menu" >
+    <mat-icon>account_circle</mat-icon> ADMINISTRADOR
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button routerLink='' mat-menu-item (click)="signOut()">
+      <mat-icon>logout</mat-icon > Cerrar sesión
+    </button>
+  </mat-menu >
+</mat-toolbar>
+
+<div class="container p-5">
+  <router-outlet></router-outlet>
+</div>

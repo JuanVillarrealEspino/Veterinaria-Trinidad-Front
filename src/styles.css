@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  color: rgb(0, 0, 0);
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.alert-danger {
+  background-color: red;
+  padding: 1rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.order-card {
+  max-width: 400px;
+  padding-top: 1rem;
+  margin: 0 auto;
+  display: block;
+}
+
+.example-card {
+  max-width: 400px;
+}
+body {
+  background:linear-gradient(rgba(19, 90, 138, 0.1),rgba(5, 57, 134, 0.1)), url('./assets/patas-gato-estetoscopio-sobre-fondo-azul-concepto-medicina-veterinaria-cuidando-mascotas-copie-espacio_76158-860.jpg');
+  /*background-image: url('./assets/adult-g39ad5b1ee_1920.jpg');*/
+  background-repeat: no-repeat,;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+
+
+}

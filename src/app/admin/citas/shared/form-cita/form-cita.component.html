@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-md-offset-3 mx-auto">
+    <form
+      (ngSubmit)="save()"
+      autocomplete="off"
+      [formGroup]="form"
+      #frmLibro="ngForm"
+    >
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Fecha hora</mat-label>
+        <input
+          matInput
+          type="date"
+          placeholder="fechahora"
+          formControlName="fechahora"
+        />
+        <mat-error *ngIf="form.controls.fechahora.hasError('required')">
+          Este campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>motivo</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="motivo"
+          formControlName="motivo"
+        />
+        <mat-error *ngIf="form.controls.motivo.hasError('required')">
+          Este campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="form.controls.motivo.hasError('minlength')">
+          Debe tener al menos 5 caracteres
+        </mat-error>
+        <mat-error *ngIf="form.controls.motivo.hasError('maxlength')">
+          Debe tener 700 caracteres como máximo
+        </mat-error>
+      </mat-form-field>
+      <!-- --------------------------------------------------------------------------------- -->
+
+      <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Mascota</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Mascota"
+          [matAutocomplete]="autoMascota"
+          [formControl]="myControlMascota"
+          formControlName="idMascota"
+        />
+        <mat-autocomplete
+          #autoMascota="matAutocomplete"
+          [displayWith]="mostrarMascota"
+        >
+          <mat-option *ngFor="let c of mascotaFiltrados$ | async" [value]="c">
+            {{ c.nombre }}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="form.controls.idMascota.hasError('required')">
+          Este Campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <!-- ------------------------------------------------------------------------------ -->
+
+      <button type="button" mat-button routerLink="/admin/Citas">
+        Cancelar
+      </button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="ms-2"
+        [disabled]="frmLibro.invalid"
+      >
+        Guardar
+      </button>
+    </form>
+  </div>
+</div>
